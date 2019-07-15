@@ -11,7 +11,7 @@ defmodule TwelveDays do
     9 => "ninth",
     10 => "tenth",
     11 => "eleventh",
-    12 => "twelfth",
+    12 => "twelfth"
   }
 
   @gifts %{
@@ -26,7 +26,7 @@ defmodule TwelveDays do
     9 => "nine Ladies Dancing",
     10 => "ten Lords-a-Leaping",
     11 => "eleven Pipers Piping",
-    12 => "twelve Drummers Drumming",
+    12 => "twelve Drummers Drumming"
   }
 
   @doc """

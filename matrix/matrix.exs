@@ -7,17 +7,19 @@ defmodule Matrix do
   """
   @spec from_string(input :: String.t()) :: %Matrix{}
   def from_string(input) do
-    rows = input
-    |> String.split("\n")
-    |> Enum.map(fn row ->
-      row
-      |> String.split()
-      |> Enum.map(&String.to_integer/1)
-    end)
+    rows =
+      input
+      |> String.split("\n")
+      |> Enum.map(fn row ->
+        row
+        |> String.split()
+        |> Enum.map(&String.to_integer/1)
+      end)
 
-    columns = rows
-    |> List.zip
-    |> Enum.map(&Tuple.to_list/1)
+    columns =
+      rows
+      |> List.zip()
+      |> Enum.map(&Tuple.to_list/1)
 
     %Matrix{rows: rows, columns: columns}
   end
@@ -29,7 +31,7 @@ defmodule Matrix do
   @spec to_string(matrix :: %Matrix{}) :: String.t()
   def to_string(matrix) do
     matrix.rows
-    |> Enum.map(&(Enum.join(&1, " ")))
+    |> Enum.map(&Enum.join(&1, " "))
     |> Enum.join("\n")
   end
 

@@ -21,7 +21,7 @@ defmodule PigLatin do
   @spec translate(phrase :: String.t()) :: String.t()
   def translate(phrase) do
     phrase
-    |> String.split
+    |> String.split()
     |> Enum.map(&(do_translate(&1) <> "ay"))
     |> Enum.join(" ")
   end
@@ -30,7 +30,8 @@ defmodule PigLatin do
     <<first>> <> rest
   end
 
-  defp do_translate(<<first>> <> <<second>> <> rest) when first in @like_vowels and second not in @vowels do
+  defp do_translate(<<first>> <> <<second>> <> rest)
+       when first in @like_vowels and second not in @vowels do
     <<first>> <> <<second>> <> rest
   end
 

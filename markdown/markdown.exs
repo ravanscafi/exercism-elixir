@@ -19,19 +19,19 @@ defmodule Markdown do
   end
 
   defp process("#" <> line) do
-    "#" <> line
+    ("#" <> line)
     |> parse_header_level
     |> enclose_with_header_tag
   end
 
   defp process("*" <> line) do
-    "*" <> line
+    ("*" <> line)
     |> parse_list_level
   end
 
   defp process(line) do
     line
-    |> String.split
+    |> String.split()
     |> enclose_with_paragraph_tag
   end
 
@@ -48,7 +48,7 @@ defmodule Markdown do
   defp parse_list_level(text) do
     text
     |> String.trim_leading("* ")
-    |> String.split
+    |> String.split()
     |> join_words_with_tags
     |> enclose_with_tag("li")
   end

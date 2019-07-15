@@ -25,17 +25,17 @@ defmodule Scrabble do
     ?J => 8,
     ?X => 8,
     ?Q => 10,
-    ?Z => 10,
+    ?Z => 10
   }
 
   @doc """
   Calculate the scrabble score for the word.
   """
-  @spec score(String.t) :: non_neg_integer
+  @spec score(String.t()) :: non_neg_integer
   def score(word) do
     String.trim(word)
-    |> String.upcase
-    |> String.to_charlist
+    |> String.upcase()
+    |> String.to_charlist()
     |> Enum.reduce(0, &(@values[&1] + &2))
   end
 end

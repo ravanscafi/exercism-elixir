@@ -1,16 +1,15 @@
 defmodule SpaceAge do
-  @type planet :: :mercury | :venus | :earth | :mars | :jupiter
-                | :saturn | :neptune | :uranus
+  @type planet :: :mercury | :venus | :earth | :mars | :jupiter | :saturn | :neptune | :uranus
 
   @reference_to_earth %{
     :mercury => 0.2408467,
-    :venus   => 0.61519726,
-    :earth   => 1,
-    :mars    => 1.8808158,
+    :venus => 0.61519726,
+    :earth => 1,
+    :mars => 1.8808158,
     :jupiter => 11.862615,
-    :saturn  => 29.447498,
-    :uranus  => 84.016846,
-    :neptune => 164.79132,
+    :saturn => 29.447498,
+    :uranus => 84.016846,
+    :neptune => 164.79132
   }
 
   @seconds_in_one_year 31_557_600

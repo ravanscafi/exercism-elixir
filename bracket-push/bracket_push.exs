@@ -5,11 +5,11 @@ defmodule BracketPush do
   @doc """
   Checks that all the brackets and braces in the string are matched correctly, and nested correctly
   """
-  @spec check_brackets(String.t) :: boolean
+  @spec check_brackets(String.t()) :: boolean
   def check_brackets(str) do
     String.to_charlist(str)
     |> Enum.reduce_while([], &do_check/2)
-    |> Enum.empty?
+    |> Enum.empty?()
   end
 
   defp do_check(bracket, buffer) when bracket in @left do
@@ -18,6 +18,7 @@ defmodule BracketPush do
 
   defp do_check(bracket, [h | t]) when bracket in @right do
     i = Enum.find_index(@right, &(&1 === bracket))
+
     if h === Enum.at(@left, i) do
       {:cont, t}
     else

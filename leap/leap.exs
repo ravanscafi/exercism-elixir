@@ -10,9 +10,9 @@ defmodule Year do
   """
   @spec leap_year?(non_neg_integer) :: boolean
   def leap_year?(year) do
-    evenly(year, 4)
-      and not evenly(year, 100)
-      or evenly(year, 400)
+    (evenly(year, 4) and
+       not evenly(year, 100)) or
+      evenly(year, 400)
   end
 
   defp evenly(year, num), do: rem(year, num) == 0

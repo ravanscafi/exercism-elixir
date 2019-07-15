@@ -3,26 +3,25 @@ defmodule Meetup do
   Calculate meetup dates.
   """
   @weekdays %{
-    :monday    => 1,
-    :tuesday   => 2,
+    :monday => 1,
+    :tuesday => 2,
     :wednesday => 3,
-    :thursday  => 4,
-    :friday    => 5,
-    :saturday  => 6,
-    :sunday    => 7,
+    :thursday => 4,
+    :friday => 5,
+    :saturday => 6,
+    :sunday => 7
   }
 
   @multiplier %{
-    :first  => 0,
+    :first => 0,
     :second => 1,
-    :third  => 2,
+    :third => 2,
     :fourth => 3,
-    :teenth => 0,
+    :teenth => 0
   }
 
   @type weekday ::
-      :monday | :tuesday | :wednesday
-    | :thursday | :friday | :saturday | :sunday
+          :monday | :tuesday | :wednesday | :thursday | :friday | :saturday | :sunday
 
   @type schedule :: :first | :second | :third | :fourth | :last | :teenth
 
@@ -32,7 +31,7 @@ defmodule Meetup do
   The schedule is in which week (1..4, last or "teenth") the meetup date should
   fall.
   """
-  @spec meetup(pos_integer, pos_integer, weekday, schedule) :: :calendar.date
+  @spec meetup(pos_integer, pos_integer, weekday, schedule) :: :calendar.date()
   def meetup(year, month, weekday, :last) do
     ldom = :calendar.last_day_of_the_month(year, month)
     lwdom = :calendar.day_of_the_week({year, month, ldom})
@@ -57,6 +56,6 @@ defmodule Meetup do
 
   defp skip(fwdom, weekday, add) do
     diff = if weekday < fwdom, do: 7, else: 0
-    weekday - fwdom + diff + (7 * add)
+    weekday - fwdom + diff + 7 * add
   end
 end

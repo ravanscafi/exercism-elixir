@@ -9,8 +9,8 @@ defmodule ETL do
   """
   @spec transform(map) :: map
   def transform(input) do
-    Enum.reduce(input, %{}, fn ({points, list}, acc) ->
-      Enum.reduce(list, acc, &(Map.put(&2, String.downcase(&1), points)))
+    Enum.reduce(input, %{}, fn {points, list}, acc ->
+      Enum.reduce(list, acc, &Map.put(&2, String.downcase(&1), points))
     end)
   end
 end

@@ -7,9 +7,10 @@ defmodule StringSeries do
   @spec slices(s :: String.t(), size :: integer) :: list(String.t())
   def slices(s, size) when size > 0 do
     s
-    |> String.graphemes
+    |> String.graphemes()
     |> Enum.chunk_every(size, 1, :discard)
     |> Enum.map(&Enum.join/1)
   end
+
   def slices(_, _), do: []
 end

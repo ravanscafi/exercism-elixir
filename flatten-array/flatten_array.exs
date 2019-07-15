@@ -19,11 +19,11 @@ defmodule FlattenArray do
     flatten(t)
   end
 
-  def flatten([h | t]) when is_integer h do
+  def flatten([h | t]) when is_integer(h) do
     [h | flatten(t)]
   end
 
-  def flatten([h | t]) when is_list h do
+  def flatten([h | t]) when is_list(h) do
     flatten(h) ++ flatten(t)
   end
 end

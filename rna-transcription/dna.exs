@@ -3,7 +3,7 @@ defmodule DNA do
     ?G => ?C,
     ?C => ?G,
     ?T => ?A,
-    ?A => ?U,
+    ?A => ?U
   }
 
   @doc """
@@ -16,6 +16,6 @@ defmodule DNA do
   """
   @spec to_rna([char]) :: [char]
   def to_rna(dna) do
-    Enum.map(dna, &(@mapping[&1]))
+    Enum.map(dna, &@mapping[&1])
   end
 end

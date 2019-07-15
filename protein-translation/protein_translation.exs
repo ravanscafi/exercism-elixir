@@ -18,7 +18,7 @@ defmodule ProteinTranslation do
     "UAC" => "Tyrosine",
     "UAA" => @stop_protein,
     "UAG" => @stop_protein,
-    "UGA" => @stop_protein,
+    "UGA" => @stop_protein
   }
 
   @doc """

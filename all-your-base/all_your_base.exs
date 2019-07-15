@@ -24,13 +24,13 @@ defmodule AllYourBase do
     digits
     |> Enum.reduce(
       {0, Enum.count(digits) - 1},
-      fn(digit, {acc, power}) -> {acc + digit_to_number(digit, base, power), power - 1} end
+      fn digit, {acc, power} -> {acc + digit_to_number(digit, base, power), power - 1} end
     )
     |> elem(0)
   end
 
   defp digit_to_number(digit, base, expoent) do
-    digit * :math.pow(base, expoent)
+    (digit * :math.pow(base, expoent))
     |> round()
   end
 

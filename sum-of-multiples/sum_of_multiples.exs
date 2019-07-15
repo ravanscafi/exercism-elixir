@@ -4,8 +4,8 @@ defmodule SumOfMultiples do
   """
   @spec to(non_neg_integer, [non_neg_integer]) :: non_neg_integer
   def to(limit, factors) do
-    0..(limit-1)
-    |> Enum.reduce(0, fn(number, acc) ->
+    0..(limit - 1)
+    |> Enum.reduce(0, fn number, acc ->
       if(multiple?(number, factors), do: acc + number, else: acc)
     end)
   end

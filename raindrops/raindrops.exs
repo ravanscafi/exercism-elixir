@@ -2,7 +2,7 @@ defmodule Raindrops do
   @map %{
     3 => "Pling",
     5 => "Plang",
-    7 => "Plong",
+    7 => "Plong"
   }
 
   @doc """
@@ -14,15 +14,16 @@ defmodule Raindrops do
   - If the number does not contain 3, 5, or 7 as a prime factor,
     just pass the number's digits straight through.
   """
-  @spec convert(pos_integer) :: String.t
+  @spec convert(pos_integer) :: String.t()
   def convert(number) do
-    converted = Enum.reduce(
-      @map,
-      "",
-      fn({by, text}, acc) ->
-        remtext(number, by, acc, text)
-      end
-    )
+    converted =
+      Enum.reduce(
+        @map,
+        "",
+        fn {by, text}, acc ->
+          remtext(number, by, acc, text)
+        end
+      )
 
     print(number, converted)
   end

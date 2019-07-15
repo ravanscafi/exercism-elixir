@@ -8,7 +8,7 @@ defmodule Hamming do
   {:ok, 4}
   """
   @spec hamming_distance([char], [char]) :: {:ok, non_neg_integer}
-  @spec hamming_distance([char], [char]) :: {:error, String.t}
+  @spec hamming_distance([char], [char]) :: {:error, String.t()}
   def hamming_distance(strand1, strand2) do
     calculate(strand1, strand2, 0)
   end

@@ -13,7 +13,7 @@ defmodule Nucleotide do
   1
   """
   @spec count([char], char) :: non_neg_integer
-  def count(_, nucleotide) when nucleotide not in @nucleotides, do: raise ArgumentError
+  def count(_, nucleotide) when nucleotide not in @nucleotides, do: raise(ArgumentError)
 
   def count(strand, nucleotide) do
     do_count(strand, nucleotide, 0)
@@ -21,7 +21,7 @@ defmodule Nucleotide do
 
   defp do_count('', _, acc), do: acc
 
-  defp do_count([h | _], _, _) when h not in @nucleotides , do: raise ArgumentError
+  defp do_count([h | _], _, _) when h not in @nucleotides, do: raise(ArgumentError)
 
   defp do_count([nucleotide | t], nucleotide, acc) do
     do_count(t, nucleotide, acc + 1)
@@ -44,7 +44,7 @@ defmodule Nucleotide do
     Enum.reduce(
       @nucleotides,
       %{},
-      fn(n, acc) -> Map.put(acc, n, count(strand, n)) end
+      fn n, acc -> Map.put(acc, n, count(strand, n)) end
     )
   end
 end

@@ -34,7 +34,6 @@ defmodule ListOps do
     do_reverse(t, [h | acc])
   end
 
-
   @spec map(list, (any -> any)) :: list
   def map(l, f) do
     do_map(l, f, [])
@@ -61,6 +60,7 @@ defmodule ListOps do
   defp do_filter(l, f, acc) do
     [h | t] = l
     filtered_t = do_filter(t, f, acc)
+
     if f.(h) do
       [h | filtered_t]
     else
@@ -73,7 +73,7 @@ defmodule ListOps do
   end
 
   @type acc :: any
-  @spec reduce(list, acc, ((any, acc) -> acc)) :: acc
+  @spec reduce(list, acc, (any, acc -> acc)) :: acc
   def reduce(l, acc, f) do
     [h | t] = l
     reduce(t, f.(h, acc), f)
